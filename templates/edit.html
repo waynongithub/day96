@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <h1>edit asset</h1>
+    <div id="assets">
+        <form action="{{ url_for('edit', id=id) }}"  method="POST">
+            <label for="ticker">ticker</label>
+            <input type="text" name="ticker" value="{{asset.ticker }}"><br>
+            <label for="asset_name">asset</label>
+            <input type="text" name="asset_name" value="{{asset.asset_name }}"><br>
+
+            <label for="date_bought">bought on</label>
+            <input type="date" name="date_bought"  value="{{asset.date_bought }}"><br>
+
+            <label for="amount">amount</label>
+            <input type="number" name="amount"  step="0.00000001"  value="{{asset.amount }}"><br>
+            <label for="price">price</label>
+            <input type="number" name="price"  step="0.00000001" value="{{asset.price }}"><br>
+            <label for="currency">currency</label>
+            <select name="currency"  value="{{asset.currency }}">
+                  <option>USD</option>
+                  <option>EUR</option>
+            </select><br>
+
+            <label for="value">value</label>
+            <input type="number" name="value"  step="0.00000001" value="{{asset.value }}"><br>
+            <button type="submit">save</button>
+        </form>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+    <div id="assets_table">
+        <table>
+            <tr class="assets_row" id="assets_heading">
+                <td class="ticker">Ticker</td>
+                <td class="asset">Asset</td>
+                <td class="date">Bought on</td>
+                <td class="amount">Amount</td>
+                <td class="price">Price</td>
+                <td class="value">Value</td>
+                <td class="currency">Currency</td>
+                <td class="price">Current price</td>
+                <td class="value">Current value</td>
+                <td class="value">P/L</td>
+                <td ></td>
+                <td ></td>
+            </tr>
+        {% for asset in assets %}
+            <tr class="assets_row" >
+                <td class="ticker">{{ asset['ticker'] }}</td>
+                <td class="asset">{{ asset['asset_name'] }}</td>
+                <td class="date">{{ asset['date_bought'] }}</td>
+                <td class="amount">{{ asset['amount'] }}</td>
+                <td class="price">{{ asset['price'] }}</td>
+                <td class="value">{{ asset['value'] }}</td>
+                <td class="price">{{ asset['current_price'] }}</td>
+                <td class="currency">{{ asset['currency'] }}</td>
+                <td class="value">{{ asset['current_value'] }}</td>
+                <td class="value">{{ asset['pl'] }}</td>
+                <td><a href="{{ url_for('edit', id=asset.id) }}">edit</a></td>
+                <td><a href="{{ url_for('edit', id=asset.id) }}">sell</a></td>
+            </tr>
+        {% endfor %}
+
+        </table>
+        <a href="{{ url_for('add') }}">add</a>
+
+    </div>
+</body>
+</html>

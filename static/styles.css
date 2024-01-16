@@ -1,0 +1,12 @@
+table {
+    border: solid black 1px;
+}
+
+td {
+    border: solid black 1px;
+    padding: 5px;
+}
+
+#assets_heading {
+    font-weight: bold;
+}
